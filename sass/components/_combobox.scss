@@ -1,13 +1,17 @@
 @use '../abstracts/' as a;
 
 .combobox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     margin-right: 20px;
     border-radius: 5px;
     overflow: hidden;
 }
+
+.combobox-controls {
+    display: flex;
+    justify-content: space-between;
+    border-radius: a.$rad a.$rad 0 0;
+}
+
 
 .combobox-btn {
     height: 70px;
@@ -19,7 +23,9 @@
     color: white;
     font-size: 18px;
     position: relative;
+    border-radius: 0 a.$rad 0 0;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .combobox-input {
@@ -31,6 +37,7 @@
     padding: 0 15px;
     height: 70px;
     width: min-content;
+    background-color: transparent;
 
     &::placeholder {
         color: white;
@@ -42,65 +49,43 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    gap: 10px 50px;
+    line-height: 1em;
+    max-height: 12em;
     color: white;
     font-size: 18px;
     padding: 10px;
+    border-radius: 0 0 a.$rad a.$rad;
+    overflow-y: scroll;
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, .1);
+    scrollbar-width: thin;
 }
 
-#ingredients-combobox {
+#ingredients-controls {
     background-color: a.$clr-blue;
 }
 
-#appliances-combobox {
-    background-color: a.$clr-green;
-    & ul {
-        display: none;
-    }
-}
-
-#ustensils-combobox {
-    background-color: a.$clr-red;
-
-    & ul {
-        display: none;
-    }
-}
-
-#ingredients-btn {
-    background-color: a.$clr-blue;
-}
-
-#appliance-btn {
+#appliances-controls {
     background-color: a.$clr-green;
 }
 
-#ustensils-btn {
+#ustensils-controls {
     background-color: a.$clr-red;
 }
-
-
-#ingredients-input {
-    background-color: a.$clr-blue;
-}
-
-#appliance-input {
-    background-color: a.$clr-green;
-}
-
-#ustensils-input {
-    background-color: a.$clr-red;
-}
-
 
 #ingredients-list {
     background-color: a.$clr-blue;
+/*     display: none; */
 }
 
 #appliances-list {
     background-color: a.$clr-green;
+    display: none;
+
 }
 
 #ustensils-list {
     background-color: a.$clr-red;
+    display: none;
+
 }

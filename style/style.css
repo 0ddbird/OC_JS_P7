@@ -91,6 +91,7 @@ main {
 }
 
 /* Colors */
+/* Border-radius */
 #search-section {
   width: 100%;
   /*     display: flex;
@@ -205,12 +206,15 @@ main {
 }
 
 .combobox {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin-right: 20px;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.combobox-controls {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px 5px 0 0;
 }
 
 .combobox-btn {
@@ -223,7 +227,9 @@ main {
   color: white;
   font-size: 18px;
   position: relative;
+  border-radius: 0 5px 0 0;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .combobox-input {
@@ -235,6 +241,7 @@ main {
   padding: 0 15px;
   height: 70px;
   width: min-content;
+  background-color: transparent;
 }
 .combobox-input::placeholder {
   color: white;
@@ -245,64 +252,43 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  gap: 10px 50px;
+  line-height: 1em;
+  max-height: 12em;
   color: white;
   font-size: 18px;
   padding: 10px;
+  border-radius: 0 0 5px 5px;
+  overflow-y: scroll;
+  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1);
+  scrollbar-width: thin;
 }
 
-#ingredients-combobox {
+#ingredients-controls {
   background-color: #3282F7;
 }
 
-#appliances-combobox {
-  background-color: #68D9A4;
-}
-#appliances-combobox ul {
-  display: none;
-}
-
-#ustensils-combobox {
-  background-color: #ED6454;
-}
-#ustensils-combobox ul {
-  display: none;
-}
-
-#ingredients-btn {
-  background-color: #3282F7;
-}
-
-#appliance-btn {
+#appliances-controls {
   background-color: #68D9A4;
 }
 
-#ustensils-btn {
-  background-color: #ED6454;
-}
-
-#ingredients-input {
-  background-color: #3282F7;
-}
-
-#appliance-input {
-  background-color: #68D9A4;
-}
-
-#ustensils-input {
+#ustensils-controls {
   background-color: #ED6454;
 }
 
 #ingredients-list {
   background-color: #3282F7;
+  /*     display: none; */
 }
 
 #appliances-list {
   background-color: #68D9A4;
+  display: none;
 }
 
 #ustensils-list {
   background-color: #ED6454;
+  display: none;
 }
 
 .recipe {
