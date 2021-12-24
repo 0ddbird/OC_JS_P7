@@ -1,0 +1,39 @@
+@use '../abstracts/' as a;
+
+#search-section {
+    width: 100%;
+/*     display: flex;
+    align-items: center; */
+    flex-flow: row wrap;
+}
+
+#searchbar {
+    width: 100%;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: a.$clr-lgrey;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: a.$clr-dgrey;
+    padding-left: 15px;
+
+    &:focus {
+        outline: 3px solid a.$clr-red;
+    }
+
+    &::placeholder {
+        opacity: 1;
+    }
+}
+
+#search_tags {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#search_combobox-container {
+    display: flex;
+    justify-self: start;
+}

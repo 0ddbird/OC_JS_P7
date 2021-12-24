@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "strict": true,
+        "watch": true,
+        "lib": ["dom", "es2017"],
+        "rootDir": "core/",
+        "outDir": "../dist",
+        "allowJs": true,
+        "paths": {
+            "bootstrap": ["../node_modules/bootstrap/dist/js/bootstrap.min"]
+        }
+    }
+}

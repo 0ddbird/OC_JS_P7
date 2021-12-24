@@ -1,0 +1,106 @@
+@use '../abstracts/' as a;
+
+.combobox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.combobox-btn {
+    height: 70px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+}
+
+.combobox-input {
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    outline: none;
+    padding: 0 15px;
+    height: 70px;
+    width: min-content;
+
+    &::placeholder {
+        color: white;
+        opacity: 1;
+    }
+}
+
+.combobox-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#ingredients-combobox {
+    background-color: a.$clr-blue;
+}
+
+#appliances-combobox {
+    background-color: a.$clr-green;
+    & ul {
+        display: none;
+    }
+}
+
+#ustensils-combobox {
+    background-color: a.$clr-red;
+
+    & ul {
+        display: none;
+    }
+}
+
+#ingredients-btn {
+    background-color: a.$clr-blue;
+}
+
+#appliance-btn {
+    background-color: a.$clr-green;
+}
+
+#ustensils-btn {
+    background-color: a.$clr-red;
+}
+
+
+#ingredients-input {
+    background-color: a.$clr-blue;
+}
+
+#appliance-input {
+    background-color: a.$clr-green;
+}
+
+#ustensils-input {
+    background-color: a.$clr-red;
+}
+
+
+#ingredients-list {
+    background-color: a.$clr-blue;
+}
+
+#appliances-list {
+    background-color: a.$clr-green;
+}
+
+#ustensils-list {
+    background-color: a.$clr-red;
+}

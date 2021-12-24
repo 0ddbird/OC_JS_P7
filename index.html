@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="style/style.css" rel="stylesheet">
+    <link href="assets/lpp_favicon_72.png" rel="icon" type="image/png">
+    <script src="https://kit.fontawesome.com/52b9d34509.js" crossorigin="anonymous"></script>
+    <title>Les petits plats</title>
+</head>
+<body>
+    <header>
+        <img src="assets/logo.png" alt="Logo les petits plats" id="logo"/>
+    </header>
+    <main>
+        <section id="search-section">
+            <input type="text" id="searchbar" placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
+            <div id="search-tags">
+                <article class="tag ingredient-tag">
+                    <h3>Coco</h3>
+                    <button class="tag-btn"></button>
+                </article>
+                <article class="tag appliance-tag">
+                    <h3>Blender</h3>
+                    <button class="tag-btn"></button>
+                </article>
+                <article class="tag ustensil-tag">
+                    <h3>Presse citron</h3>
+                    <button class="tag-btn"></button>
+                </article>
+            </div>
+
+            <div id="search_combobox-container">
+                <div class="combobox" id="ingredients-combobox">
+                    <input type="text" class="combobox-input" id="ingredients-input" placeholder="Ingrédients" size="10">
+                    <button class="combobox-btn" id="ingredients-btn"><i class="fas fa-angle-down"></i></button>
+                    <ul class="combobox-list" id="ingredients-list">
+                        <li class="ingredient-item">Lait de coco</li>
+                        <li class="ingredient-item">Sucre</li>
+                        <li class="ingredient-item">Pastèque</li>
+                        <li class="ingredient-item">Glace à la vanille</li>
+                        <li class="ingredient-item">Citron</li>
+                        <li class="ingredient-item">Oeuf</li>
+                        <li class="ingredient-item">Farine</li>
+                        <li class="ingredient-item">Crème fraîche</li>
+                        <li class="ingredient-item">Mangue</li>
+                        <li class="ingredient-item">Jus de citron</li>
+                        <li class="ingredient-item">Glaçons</li>
+                        <li class="ingredient-item">Menthe</li>
+                        <li class="ingredient-item">Lait</li>
+                        <li class="ingredient-item">Sucre glace</li>
+                        <li class="ingredient-item">Chocolat noir</li>
+                        <li class="ingredient-item">Pruneaux</li>
+                        <li class="ingredient-item">Bananes</li>
+                        <li class="ingredient-item">Miel</li>
+                        <li class="ingredient-item">Crème de coco</li>
+                        <li class="ingredient-item">Fraise</li>
+                        <li class="ingredient-item">Ananas</li>
+                        <li class="ingredient-item">Kiwi</li>
+                        <li class="ingredient-item">Banane</li>
+                        <li class="ingredient-item">Sucre vanillé</li>
+                        <li class="ingredient-item">Mascarpone</li>
+                        <li class="ingredient-item">Kiwis</li>
+                    </ul>
+                </div>
+                
+                <div class="combobox" id="appliances-combobox">
+                    <input type="text" class="combobox-input" id="appliance-input" placeholder="Appareil" size="10">
+                    <button class="combobox-btn" id="appliance-btn"><i class="fas fa-angle-down" ></i></button>
+                    <ul class="combobox-list" id="appliance-list">
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                    </ul>
+                </div>
+                
+                <div class="combobox" id="ustensils-combobox">
+                    <input type="text" class="combobox-input" id="ustensils-input" placeholder="Ustensiles" size="10">
+                    <button class="combobox-btn" id="ustensils-btn"><i class="fas fa-angle-down"></i></button>
+                    <ul class="combobox-list" id="ustensils-list">
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                        <li class="ingredient-item">Item</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="result-section">
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+            <article class="recipe">
+                <div class="recipe-thumbnail"></div>
+                <div class="recipe-details">
+                    <h2 class="recipe-title">Lorem ipsum dolor sit amet.</h2>
+                    <span class="recipe-time">10 min</span>
+                    <ul class="recipe-ingredients">
+                        <li><b>Ingredient 1:</b> quantity unit</li>
+                        <li><b>Ingredient 2:</b> quantity unit</li>
+                        <li><b>Ingredient 3:</b> quantity unit</li>
+                        <li><b>Ingredient 4:</b> quantity unit</li>
+                        <li><b>Ingredient 5:</b> quantity unit</li>
+                        <li><b>Ingredient 6:</b> quantity unit</li>
+                    </ul>
+                    <p class="recipe-description">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia vero neque, amet nam impedit, expedita minus laudantium quis quibusdam magni assumenda? Accusantium labore explicabo, veritatis provident repudiandae, commodi, quas iusto tenetur ipsum sequi est. Expedita quas cupiditate, aut ratione odit ducimus tempora voluptas quasi qui ab modi quia neque adipisci!
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <template id="recipe">
+        <article class="recipe">
+            <div class="recipe_thumbnail">
+            <div class="recipe_details">
+                <h2 class="recipe_name"></h2>
+                <span class="recipe_time"></span>
+                <ul class="recipe_ingredients"></ul>
+                <p class="recipe_description"></p>
+            </div>
+        </article>
+    </template>
+    <script src="dist/index.js"></script>
+</body>
+</html>
