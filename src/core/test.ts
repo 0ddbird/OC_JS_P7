@@ -1,15 +1,15 @@
-console.log("Hello world");
+console.log('Hello world')
 
-let myNum = 8;
+const myNum = 8
 
-let myArray: number[] = [];
+const myArray: number[] = []
 
 myArray.push(myNum)
 myArray.push(10)
 
 console.log(myArray)
 
-function myFunction(param1: number, param2: string):string {
+function myFunction (param1: number, param2: string):string {
     return param1 + param2
 }
 

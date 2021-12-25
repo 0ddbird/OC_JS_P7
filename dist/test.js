@@ -1,7 +1,7 @@
 "use strict";
-console.log("Hello world");
-let myNum = 8;
-let myArray = [];
+console.log('Hello world');
+const myNum = 8;
+const myArray = [];
 myArray.push(myNum);
 myArray.push(10);
 console.log(myArray);

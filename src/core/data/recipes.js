@@ -277,16 +277,7 @@ const recipes = [
                 "ingredient": "Oeuf",
                 "quantity": 2
            },
-           {
-               "ingredient": "Sucre en Poudre",
-               "quantity": "110",
-               "unit": "grammes"
-           },
-           {
-                "ingredient": "farine",
-                "quantity": 90,
-                "unit": "grammes"
-           }
+           
 
         ], 
         "time": 60,
@@ -1724,3 +1715,5 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+export { recipes };
