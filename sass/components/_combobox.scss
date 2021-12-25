@@ -12,7 +12,6 @@
     border-radius: a.$rad a.$rad 0 0;
 }
 
-
 .combobox-btn {
     height: 70px;
     width: 30px;
@@ -23,7 +22,7 @@
     color: white;
     font-size: 18px;
     position: relative;
-    border-radius: 0 a.$rad 0 0;
+    border-radius: a.$rad;
     cursor: pointer;
     background-color: transparent;
 }
@@ -47,7 +46,7 @@
 
 .combobox-list {
     width: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 50px;
     line-height: 1em;
@@ -59,6 +58,14 @@
     overflow-y: scroll;
     scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, .1);
     scrollbar-width: thin;
+}
+
+.hidden {
+    display: none;
+}
+
+.expanded {
+    display: grid;
 }
 
 #ingredients-controls {
@@ -75,17 +82,12 @@
 
 #ingredients-list {
     background-color: a.$clr-blue;
-/*     display: none; */
 }
 
 #appliances-list {
     background-color: a.$clr-green;
-    display: none;
-
 }
 
 #ustensils-list {
     background-color: a.$clr-red;
-    display: none;
-
 }

@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
@@ -96,7 +96,7 @@ const recipes = [
                 "quantity": 1
             },
             {
-                "ingredient": "Huile d'olive",
+                "ingredient": "Huile d'olive"
                 "quantity": 1,
                "unit": "cuillères à soupe"
             }
@@ -197,7 +197,7 @@ const recipes = [
             },
             {
                 "ingredient": "Oeuf",
-                "quantity": "2"
+                "quantity": "2"                                                                                                                                                                                                                                                                                                                                                   
             },
             {
                 "ingredient":"Crème fraiche",
@@ -277,7 +277,16 @@ const recipes = [
                 "ingredient": "Oeuf",
                 "quantity": 2
            },
-           
+           {
+               "ingredient": "Sucre en Poudre",
+               "quantity": "110",
+               "unit": "grammes"
+           },
+           {
+                "ingredient": "farine",
+                "quantity": 90,
+                "unit": "grammes"
+           }
 
         ], 
         "time": 60,
@@ -1715,5 +1724,3 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
-
-export { recipes };

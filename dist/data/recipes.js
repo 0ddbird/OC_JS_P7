@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
     {
         "id": 1,
         "name": "Limonade de Coco",
@@ -276,6 +276,16 @@ const recipes = [
                 "ingredient": "Oeuf",
                 "quantity": 2
             },
+            {
+                "ingredient": "Sucre en Poudre",
+                "quantity": "110",
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "farine",
+                "quantity": 90,
+                "unit": "grammes"
+            }
         ],
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
@@ -1708,4 +1718,3 @@ const recipes = [
         "ustensils": ["rouleau à patisserie", "fouet"]
     }
 ];
-export { recipes };

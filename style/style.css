@@ -227,7 +227,7 @@ main {
   color: white;
   font-size: 18px;
   position: relative;
-  border-radius: 0 5px 0 0;
+  border-radius: 5px;
   cursor: pointer;
   background-color: transparent;
 }
@@ -250,7 +250,7 @@ main {
 
 .combobox-list {
   width: 100%;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 50px;
   line-height: 1em;
@@ -262,6 +262,14 @@ main {
   overflow-y: scroll;
   scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1);
   scrollbar-width: thin;
+}
+
+.hidden {
+  display: none;
+}
+
+.expanded {
+  display: grid;
 }
 
 #ingredients-controls {
@@ -278,17 +286,14 @@ main {
 
 #ingredients-list {
   background-color: #3282F7;
-  /*     display: none; */
 }
 
 #appliances-list {
   background-color: #68D9A4;
-  display: none;
 }
 
 #ustensils-list {
   background-color: #ED6454;
-  display: none;
 }
 
 .recipe {

@@ -1,20 +1,21 @@
 import { recipes } from './data/recipes.js'
-import { displayRecipes } from './components/display.js'
+import { fixedRecipes } from './data/recipes-fixed.js'
 import { recipeFactory } from './factory/recipeFactory.js'
+import { getIngredients, displayIngredients, getAppliances, displayAppliances, getUstensils, displayUstensils } from './factory/combobox.js'
+import { addEventListeners } from './events.js'
+import { fixKeys, getAllRecipes } from './data/fixdata.js'
 
 function init ():void {
-    recipes.forEach(recipe => recipeFactory(recipe))
-}
-
-const searchbar = (<HTMLInputElement>document.getElementById('searchbar'))
-
-searchbar!.addEventListener('keyup', handleKeyUp)
-
-function handleKeyUp ():void {
-    // Note : prevent other keys than [AZ-az, space] to trigger search
-    if (searchbar.value.length >= 3) {
-        console.log('3 or more characters in searchbar:', searchbar.value)
-    }
+    fixedRecipes.forEach(recipe => recipeFactory(recipe))
+    const ingredients = getIngredients(fixedRecipes)
+    const appliances = getAppliances(fixedRecipes)
+    const ustensils = getUstensils(fixedRecipes)
+    displayIngredients(ingredients)
+    displayAppliances(appliances)
+    displayUstensils(ustensils)
+    addEventListeners()
+    const cleanRecipes = getAllRecipes(recipes)
+    // fixKeys(cleanRecipes)
 }
 
 init()

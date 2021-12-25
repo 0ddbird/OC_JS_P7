@@ -1,4 +1,4 @@
-import { Recipe } from '../data/data-control.js'
+import { Recipe } from '../data/interfaces.js'
 
 function recipeFactory (recipeContent: Recipe): void {
     const { id, name, servings, ingredients, time, description, appliance, ustensils } = recipeContent
