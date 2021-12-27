@@ -16,5 +16,4 @@ export function getAllRecipes (recipes: Recipe[]):object {
 
 export function fixKeys (recipes: Recipe[]):void {
     let keys: string[]
-    console.log(keys)
 }

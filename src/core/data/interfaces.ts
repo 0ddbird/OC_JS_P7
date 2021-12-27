@@ -15,4 +15,17 @@ interface Recipe {
     ustensils: string[]
 }
 
-export { Recipe, Ingredient }
+type UserInput = {
+    textSearch: string;
+    ingredientTags: string[];
+    applianceTags: string[];
+    ustensilTags: string[];
+}
+
+type SearchTags = {
+    category: string;
+    keywords: string[];
+
+}
+
+export { Recipe, Ingredient, UserInput, SearchTags }
