@@ -240,6 +240,9 @@ main {
   color: white;
   opacity: 1;
 }
+.combobox-input.expanded::placeholder {
+  opacity: 0.5;
+}
 
 .combobox-list {
   display: grid;

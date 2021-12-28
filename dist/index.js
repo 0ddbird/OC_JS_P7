@@ -8,7 +8,7 @@ export const searchParameters = {
     ustensils: []
 }
 function init () {
-    displayResults([...Array(10).keys()])
+    displayResults([...Array(50).keys()])
     addEventListeners()
 }
 

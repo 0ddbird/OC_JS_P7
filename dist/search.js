@@ -23,15 +23,15 @@ function search (searchParameters) {
     const ustensilsMatch = ustensilsSearch(searchParameters.ustensils)
     const matchingRecipes = ingredientsMatch.concat(appliancesMatch, ustensilsMatch, textSearch)
 
-    let range = 0;
+    let requiredOccurence = 0;
 
     [textSearch, ingredientsMatch, appliancesMatch, ustensilsMatch].forEach(array => {
         if (array.length > 0) {
-            range += 1
+            requiredOccurence += 1
         }
     })
 
-    const fullMatchRecipes = filterByOccurence(matchingRecipes, range)
+    const fullMatchRecipes = filterByOccurence(matchingRecipes, requiredOccurence)
 
     return fullMatchRecipes
 }
@@ -72,22 +72,22 @@ function ingredientsSearch (tags) {
 }
 
 function keywordSearch (keyword, matchingRecipes) {
-    // Search in title + ingredients + description
     const matchR = []
     const matchIds = []
 
     matchR.push(recipes.filter(recipe => recipe.name.includes(keyword)))
     matchR.push(recipes.filter(recipe => recipe.description.includes(keyword)))
     matchR.push(recipes.filter(recipe => hasIngredient(recipe, [keyword])))
-    matchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => matchIds.push(recipe.id)))
-    return matchIds.filter(onlyUnique)
+    matchR.flat().forEach(recipe => matchIds.push(recipe.id))
+    // matchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => matchIds.push(recipe.id)))
+    return matchIds.filter(getUniqueItems)
 }
 
 function filterByOccurence (array, count) {
     return array.filter((a, index) => array.indexOf(a) === index && array.reduce((acc, b) => +(a === b) + acc, 0) === count)
 }
 
-function onlyUnique (value, index, self) {
+function getUniqueItems (value, index, self) {
     return self.indexOf(value) === index
 }
 

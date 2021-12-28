@@ -42,7 +42,14 @@
         color: white;
         opacity: 1;
     }
+    &.expanded::placeholder {
+        opacity: .5;
+    }
 }
+
+
+
+
 
 .combobox-list {
     display: grid;
