@@ -15,6 +15,11 @@ interface Recipe {
     ustensils: string[]
 }
 
+type TagObject = {
+    category: string;
+    tags: string[];
+}
+
 type UserInput = {
     textSearch: string;
     ingredientTags: string[];
@@ -28,4 +33,12 @@ type SearchTags = {
 
 }
 
-export { Recipe, Ingredient, UserInput, SearchTags }
+interface SearchParameters {
+    textSearch: string
+    ingredients: string[]
+    appliances: string[]
+    ustensils: string[]
+
+}
+
+export { Recipe, Ingredient, UserInput, SearchTags, TagObject, SearchParameters }

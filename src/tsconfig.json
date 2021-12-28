@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "strict": true,
         "watch": true,
         "lib": ["dom", "es2017"],
         "rootDir": "core/",
         "outDir": "../dist",
         "allowJs": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true
     }
 }

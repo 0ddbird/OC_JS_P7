@@ -1,15 +1,15 @@
-import { recipes } from './data/recipes.js';
-import { recipeFactory } from './factory/recipeFactory.js';
-import { getIngredients, displayIngredients, getAppliances, displayAppliances, getUstensils, displayUstensils } from './factory/combobox.js';
-import { addEventListeners } from './events.js';
-function init() {
-    recipes.forEach(recipe => recipeFactory(recipe));
-    const ingredients = getIngredients(recipes);
-    const appliances = getAppliances(recipes);
-    const ustensils = getUstensils(recipes);
-    displayIngredients(ingredients);
-    displayAppliances(appliances);
-    displayUstensils(ustensils);
-    addEventListeners();
+import { addEventListeners } from './events.js'
+import { displayResults } from './display.js'
+
+export const searchParameters = {
+    textSearch: '',
+    ingredients: [],
+    appliances: [],
+    ustensils: []
 }
-init();
+function init () {
+    displayResults([...Array(10).keys()])
+    addEventListeners()
+}
+
+init()

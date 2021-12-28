@@ -77,10 +77,9 @@ main {
 }
 
 #search-tags {
-  height: 40px;
-  width: 100%;
-  margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 #result-section {
@@ -115,12 +114,6 @@ main {
 }
 #searchbar::placeholder {
   opacity: 1;
-}
-
-#search_tags {
-  height: 40px;
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 #search_combobox-container {
@@ -172,7 +165,7 @@ main {
   color: white;
   font-size: 14px;
   font-weight: 700;
-  margin-right: 20px;
+  margin: 5px 20px 5px 0;
 }
 
 .tag-btn {
@@ -193,15 +186,15 @@ main {
   content: "\f057";
 }
 
-.ingredient-tag {
+.ingredients-tag {
   background-color: #3282F7;
 }
 
-.appliance-tag {
+.appliances-tag {
   background-color: #68D9A4;
 }
 
-.ustensil-tag {
+.ustensils-tag {
   background-color: #ED6454;
 }
 
@@ -249,8 +242,8 @@ main {
 }
 
 .combobox-list {
+  display: grid;
   width: 100%;
-  display: none;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 50px;
   line-height: 1em;
@@ -263,13 +256,8 @@ main {
   scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1);
   scrollbar-width: thin;
 }
-
-.hidden {
-  display: none;
-}
-
-.expanded {
-  display: grid;
+.combobox-list li {
+  cursor: pointer;
 }
 
 #ingredients-controls {
@@ -356,6 +344,10 @@ main {
   text-overflow: ellipsis;
   line-height: 1em;
   max-height: 8em;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

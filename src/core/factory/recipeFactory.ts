@@ -15,6 +15,7 @@ function recipeFactory (recipeContent: Recipe): void {
     recipe.setAttribute('data-appliance', `${appliance}`)
     recipe.setAttribute('data-ustensils', `${ustensils}`)
     recipe.setAttribute('data-servings', `${servings}`)
+    recipe.setAttribute('tabindex', '0')
     recipeTime.textContent = `${time} min`
     recipeTitle.textContent = name
     ingredients.forEach(ingredient => {

@@ -45,8 +45,8 @@
 }
 
 .combobox-list {
+    display: grid;
     width: 100%;
-    display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 50px;
     line-height: 1em;
@@ -58,14 +58,10 @@
     overflow-y: scroll;
     scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, .1);
     scrollbar-width: thin;
-}
 
-.hidden {
-    display: none;
-}
-
-.expanded {
-    display: grid;
+    & li {
+        cursor: pointer;
+    }
 }
 
 #ingredients-controls {

@@ -23,10 +23,9 @@ main {
 }
 
 #search-tags {
-    height: 40px;
-    width: 100%;
-    margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 #result-section {

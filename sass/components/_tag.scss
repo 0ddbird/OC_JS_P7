@@ -10,7 +10,7 @@
     color: white;
     font-size: 14px;
     font-weight: 700;
-    margin-right: 20px;
+    margin: 5px 20px 5px 0;
 }
 
 .tag-btn {
@@ -26,14 +26,14 @@
     }
 }
 
-.ingredient-tag {
+.ingredients-tag {
     background-color: a.$clr-blue;
 }
 
-.appliance-tag {
+.appliances-tag {
     background-color: a.$clr-green;
 }
 
-.ustensil-tag {
+.ustensils-tag {
     background-color: a.$clr-red;
 }

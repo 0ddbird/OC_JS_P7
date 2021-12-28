@@ -1,4 +1,4 @@
-import { Recipe, UserInput, SearchTags } from './data/interfaces.js'
+/* import { Recipe, UserInput, SearchTags } from './data/interfaces.js'
 
 function search (userInput: UserInput):void {
     // Search recipes matching the input (keywords and/or tag(s))
@@ -6,8 +6,8 @@ function search (userInput: UserInput):void {
     const matchingAppliances = applianceSearch(userInput.appliances)
     const matchingUstensils = ustensilsSearch(userInput.ustensils)
     let idArray: number[]
-
-    /* userInput example :
+ */
+/* userInput example :
     {
         textSearch: 'coco',
         ingredientTags: ['lait de coco', 'citron pressé'],
@@ -39,23 +39,22 @@ function search (userInput: UserInput):void {
     idArray will be used by getRecipes()
     result from getRecipes will be used by recipeFactory to append them to the DOM
     getIngredients, getAppliances, getUstensils will be called again on the new the result
-    */
-}
 
-function tagSearch (tags: SearchTags): number[] {
-    /* Takes tags object as input
-    *
-    * Example of tags for Ingredients : {category: 'recipe', keywords: ['lait de coco', 'jus de citron']}
-    * Example of tags for Appliance : {category: 'appliance', keywords: ['blender']}
-    * Example of tags for Ustensils : {category: 'ustensils', keywords: ['moule à tarte', 'saladier', 'fourchette']}
-    * For each string of tags.keywords: filter matching strings in recipes object
-    * Return an array of numbers: ids from matching recipes
-    */
+}
+*/
+/* function tagSearch (tags: SearchTags): number[] {
+    // Takes tags object as input
+
+    // Example of tags for Ingredients : {category: 'recipe', keywords: ['lait de coco', 'jus de citron']}
+    // Example of tags for Appliance : {category: 'appliance', keywords: ['blender']}
+    // Example of tags for Ustensils : {category: 'ustensils', keywords: ['moule à tarte', 'saladier', 'fourchette']}
+    // For each string of tags.keywords: filter matching strings in recipes object
+    // Return an array of numbers: ids from matching recipes
 
     return []
-}
-
+} */
+/*
 function getUserInput (keywords?:string, applianceTags?:string[], ustensilsTags?:string[]):void {
     // Gets all inputs from the user. Triggered by click on tag and/or 3+ characters in the text input
     // This should be the callback function to the inputs event listeners (text input, tag select)
-}
+} */

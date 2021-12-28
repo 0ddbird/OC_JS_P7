@@ -19,18 +19,18 @@
         <section id="search-section">
             <input type="text" id="searchbar" placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
             <div id="search-tags">
-                <article class="tag ingredient-tag">
+                <!-- <article class="tag ingredients-tag">
                     <h3>Coco</h3>
                     <button class="tag-btn"></button>
                 </article>
-                <article class="tag appliance-tag">
+                <article class="tag appliances-tag">
                     <h3>Blender</h3>
                     <button class="tag-btn"></button>
                 </article>
-                <article class="tag ustensil-tag">
+                <article class="tag ustensils-tag">
                     <h3>Presse citron</h3>
                     <button class="tag-btn"></button>
-                </article>
+                </article> -->
             </div>
 
             <div id="search_combobox-container">
@@ -61,8 +61,8 @@
                         </button>
                     </div>
                     <ul 
+                    class="combobox-list hidden"
                     id="ingredients-list"
-                    class="combobox-list"
                     data-type="ingredients">
                     </ul>
                 </div>
@@ -93,7 +93,7 @@
                         </button>
                     </div>
                     <ul
-                    class="combobox-list"
+                    class="combobox-list hidden"
                     id="appliances-list"
                     data-type="appliances">
                     </ul>
@@ -125,7 +125,7 @@
                         </button>
                     </div>
                     <ul
-                    class="combobox-list"
+                    class="combobox-list hidden"
                     id="ustensils-list"
                     data-type="ustensils">
                     </ul>
@@ -144,6 +144,12 @@
                 <ul class="recipe-ingredients"></ul>
                 <p class="recipe-description"></p>
             </div>
+        </article>
+    </template>
+    <template id="template_tag">
+        <article class="tag"> <!--classlist.add "category-tag"-->
+            <h3 class="tag-title"></h3>
+            <button class="tag-btn"></button>
         </article>
     </template>
     <script src="dist/index.js" type="module"></script>
