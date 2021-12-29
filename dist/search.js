@@ -1,6 +1,8 @@
-import { recipes } from './data/recipes.js'
+import { jsonRecipes } from './data/recipes.js'
 import { searchParameters } from './index.js'
 import { displayResults } from './display.js'
+
+const recipes = JSON.parse(jsonRecipes)
 
 function updateResults () {
     const result = search(searchParameters)
@@ -8,83 +10,100 @@ function updateResults () {
 }
 
 function search (searchParameters) {
-    let requiredOccurence = 0
-    const resultsToFilter = []
-
     const activeSearch = {
-        text: searchParameters.textSearch !== '',
         ingredients: searchParameters.ingredients.length > 0,
         appliances: searchParameters.appliances.length > 0,
-        ustensils: searchParameters.ustensils.length > 0
-    }
-
-    const searchResults = {
-        text: keywordSearch(searchParameters.textSearch),
-        ingredients: ingredientsSearch(searchParameters.ingredients),
-        appliances: appliancesSearch(searchParameters.appliances),
-        ustensils: ustensilsSearch(searchParameters.ustensils)
+        ustensils: searchParameters.ustensils.length > 0,
+        text: searchParameters.textSearch !== ''
     }
 
     if (Object.values(activeSearch).every(item => item === false)) {
         return [...Array(50).keys()]
     }
 
-    Object.entries(searchResults).forEach(([key, value]) => {
-        // console.log(`%c${key}: ${value}`, 'color: #e74c3c')
-        if (activeSearch[key]) {
-            requiredOccurence += 1
-            resultsToFilter.push(value)
+    let idsFound = []
+
+    Object.entries(activeSearch).forEach(([key, value]) => {
+        const searchResults = {
+            ingredients: ingredientsSearch(idsFound),
+            appliances: appliancesSearch(idsFound),
+            ustensils: ustensilsSearch(idsFound),
+            text: keywordSearch(idsFound)
+        }
+        if (value) {
+            const currentBatch = []
+            currentBatch.push(searchResults[`${key}`])
+            if (currentBatch.length === 0) {
+                return []
+            } else idsFound = currentBatch.flat()
         }
     })
 
-    return filterByOccurence(resultsToFilter.flat(), requiredOccurence)
+    return idsFound
 }
 
-function ustensilsSearch (tags) {
+function getRecipesById (ids) {
+    const result = []
+    ids.forEach(id => result.push(recipes.filter(recipe => recipe.id === id)))
+    return result.flat()
+}
+
+function ustensilsSearch (ids) {
     const singleTagMatchR = []
     const singleTagMatchIds = []
+    const tags = searchParameters.ustensils
+    let recipesToParse
 
-    // Push recipes that match a single tag to singleTagMatchR
-    tags.forEach(tag => singleTagMatchR.push(recipes.filter(recipe => recipe.ustensils.includes(tag))))
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
-    // Push id of all recipes matching a single tag to singleTagMatchIds
+    tags.forEach(tag => singleTagMatchR.push(recipesToParse.filter(recipe => recipe.ustensils.includes(tag))))
     singleTagMatchR.flat().forEach(recipe => singleTagMatchIds.push(recipe.id))
-
-    // Filter recipes that match every tags
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
 
-function appliancesSearch (tags) {
+function appliancesSearch (ids) {
     const singleTagMatchR = []
     const singleTagMatchIds = []
+    const tags = searchParameters.appliances
+    let recipesToParse
 
-    tags.forEach(tag => singleTagMatchR.push(recipes.filter(recipe => recipe.appliance === tag)))
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
+    tags.forEach(tag => singleTagMatchR.push(recipesToParse.filter(recipe => recipe.appliance === tag)))
     singleTagMatchR.flat().forEach(recipe => singleTagMatchIds.push(recipe.id))
-
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
 
-function ingredientsSearch (tags) {
+function ingredientsSearch (ids) {
     const singleTagMatchR = []
     const singleTagMatchIds = []
-    tags.forEach(tag => singleTagMatchR.push(recipes.filter(recipe => hasIngredient(recipe, tag))))
+    const tags = searchParameters.ingredients
+    let recipesToParse
 
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
+
+    tags.forEach(tag => singleTagMatchR.push(recipesToParse.filter(recipe => hasIngredient(recipe, tag))))
     singleTagMatchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => singleTagMatchIds.push(recipe.id)))
-
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
 
-function keywordSearch (keyword, matchingRecipes) {
+function keywordSearch (ids) {
     const matchR = []
     const matchIds = []
+    const keyword = searchParameters.textSearch
+    let recipesToParse
 
-    matchR.push(recipes.filter(recipe => recipe.name.includes(keyword)))
-    matchR.push(recipes.filter(recipe => recipe.description.includes(keyword)))
-    matchR.push(recipes.filter(recipe => hasIngredient(recipe, [keyword])))
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
+
+    matchR.push(recipesToParse.filter(recipe => recipe.name.includes(keyword)))
+    matchR.push(recipesToParse.filter(recipe => recipe.description.includes(keyword)))
+    matchR.push(recipesToParse.filter(recipe => hasIngredient(recipe, [keyword])))
     matchR.flat().forEach(recipe => matchIds.push(recipe.id))
-    // matchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => matchIds.push(recipe.id)))
-    // console.log(matchIds)
+
     return matchIds.filter(getUniqueItems)
 }
 
@@ -99,10 +118,7 @@ function getUniqueItems (value, index, self) {
 function hasIngredient (recipe, tag) {
     let result = false
     recipe.ingredients.forEach(object => {
-        if (object.ingredient === tag) {
-            // console.log(`%c${tag} === ${object.ingredient}`, 'color: #2ecc71', true)
-            result = true
-        }
+        if (object.ingredient.includes(tag)) result = true
     })
     return result
 }

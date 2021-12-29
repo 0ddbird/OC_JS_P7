@@ -1724,3 +1724,5 @@ export const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+export const jsonRecipes = JSON.stringify(recipes)
