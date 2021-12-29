@@ -23,7 +23,6 @@ export function addTag (name, category) {
 function removeTag (e) {
     const button = e.target
     const tag = e.target.parentNode
-    console.log(searchParameters[button.dataset.category])
     searchParameters[button.dataset.category] = searchParameters[button.dataset.category].filter(keyword => keyword !== button.dataset.name)
     tag.parentNode.removeChild(tag)
     e.target.removeEventListener('click', removeTag)

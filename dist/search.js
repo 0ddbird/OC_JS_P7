@@ -8,32 +8,36 @@ function updateResults () {
 }
 
 function search (searchParameters) {
-    console.log(searchParameters)
+    let requiredOccurence = 0
+    const resultsToFilter = []
 
-    if (searchParameters.textSearch === '' &&
-        searchParameters.ingredients === [] &&
-        searchParameters.appliances === [] &&
-        searchParameters.ustensils === []) {
+    const activeSearch = {
+        text: searchParameters.textSearch !== '',
+        ingredients: searchParameters.ingredients.length > 0,
+        appliances: searchParameters.appliances.length > 0,
+        ustensils: searchParameters.ustensils.length > 0
+    }
+
+    const searchResults = {
+        text: keywordSearch(searchParameters.textSearch),
+        ingredients: ingredientsSearch(searchParameters.ingredients),
+        appliances: appliancesSearch(searchParameters.appliances),
+        ustensils: ustensilsSearch(searchParameters.ustensils)
+    }
+
+    if (Object.values(activeSearch).every(item => item === false)) {
         return [...Array(50).keys()]
     }
 
-    const textSearch = keywordSearch(searchParameters.textSearch)
-    const ingredientsMatch = ingredientsSearch(searchParameters.ingredients)
-    const appliancesMatch = appliancesSearch(searchParameters.appliances)
-    const ustensilsMatch = ustensilsSearch(searchParameters.ustensils)
-    const matchingRecipes = ingredientsMatch.concat(appliancesMatch, ustensilsMatch, textSearch)
-
-    let requiredOccurence = 0;
-
-    [textSearch, ingredientsMatch, appliancesMatch, ustensilsMatch].forEach(array => {
-        if (array.length > 0) {
+    Object.entries(searchResults).forEach(([key, value]) => {
+        // console.log(`%c${key}: ${value}`, 'color: #e74c3c')
+        if (activeSearch[key]) {
             requiredOccurence += 1
+            resultsToFilter.push(value)
         }
     })
 
-    const fullMatchRecipes = filterByOccurence(matchingRecipes, requiredOccurence)
-
-    return fullMatchRecipes
+    return filterByOccurence(resultsToFilter.flat(), requiredOccurence)
 }
 
 function ustensilsSearch (tags) {
@@ -44,7 +48,7 @@ function ustensilsSearch (tags) {
     tags.forEach(tag => singleTagMatchR.push(recipes.filter(recipe => recipe.ustensils.includes(tag))))
 
     // Push id of all recipes matching a single tag to singleTagMatchIds
-    singleTagMatchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => singleTagMatchIds.push(recipe.id)))
+    singleTagMatchR.flat().forEach(recipe => singleTagMatchIds.push(recipe.id))
 
     // Filter recipes that match every tags
     return filterByOccurence(singleTagMatchIds, tags.length)
@@ -56,7 +60,7 @@ function appliancesSearch (tags) {
 
     tags.forEach(tag => singleTagMatchR.push(recipes.filter(recipe => recipe.appliance === tag)))
 
-    singleTagMatchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => singleTagMatchIds.push(recipe.id)))
+    singleTagMatchR.flat().forEach(recipe => singleTagMatchIds.push(recipe.id))
 
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
@@ -80,6 +84,7 @@ function keywordSearch (keyword, matchingRecipes) {
     matchR.push(recipes.filter(recipe => hasIngredient(recipe, [keyword])))
     matchR.flat().forEach(recipe => matchIds.push(recipe.id))
     // matchR.forEach(arrayOfRecipes => arrayOfRecipes.forEach(recipe => matchIds.push(recipe.id)))
+    // console.log(matchIds)
     return matchIds.filter(getUniqueItems)
 }
 

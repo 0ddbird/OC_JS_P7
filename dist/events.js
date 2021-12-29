@@ -53,7 +53,6 @@ function expandList (evt) {
     comboboxDOM.input.classList.add('expanded')
     const listArray = [].slice.call(comboboxDOM.list.children)
     if (evt.target === comboboxDOM.button || evt.target === comboboxDOM.input) {
-        console.log('is comboboxDOM button')
         comboboxDOM.list.classList.remove('hidden')
     }
     listArray.forEach(element => element.addEventListener('click', selectTag))
