@@ -24,6 +24,13 @@
     background-attachment: scroll;
     background-position: 99% 50%;
     background-color: a.$clr-lgrey;
+
+    @media screen and (max-width: 990px) {
+        font-size: 14px;
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
 }
 
 #search_subfilters {

@@ -88,6 +88,16 @@ main {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+@media screen and (max-width: 990px) {
+  #result-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  #result-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 
 /* Colors */
 /* Border-radius */
@@ -119,6 +129,12 @@ main {
 #search_combobox-container {
   display: flex;
   justify-self: start;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 990px) {
+  #search_combobox-container {
+    justify-content: center;
+  }
 }
 
 #logo {
@@ -148,6 +164,16 @@ main {
 }
 #searchbar::placeholder {
   opacity: 1;
+}
+@media screen and (max-width: 990px) {
+  #searchbar {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #searchbar {
+    font-size: 12px;
+  }
 }
 
 #search_subfilters {
@@ -199,9 +225,10 @@ main {
 }
 
 .combobox {
-  margin-right: 20px;
+  margin: 20px 20px 0 0;
   border-radius: 5px;
   overflow: hidden;
+  min-width: 130px;
 }
 
 .combobox-controls {

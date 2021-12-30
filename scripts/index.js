@@ -7,6 +7,7 @@ export const searchParameters = {
     appliances: [],
     ustensils: []
 }
+
 function init () {
     displayResults([...Array(50).keys()])
     addEventListeners()

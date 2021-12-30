@@ -16,16 +16,15 @@ export function addTag (name, category) {
     tagButton.setAttribute('data-category', category)
     tagButton.setAttribute('data-name', name)
     searchTagsDiv.appendChild(templateClone)
-
     tagButton.addEventListener('click', removeTag)
 }
 
 function removeTag (e) {
     const button = e.target
     const tag = e.target.parentNode
+
     searchParameters[button.dataset.category] = searchParameters[button.dataset.category].filter(keyword => keyword !== button.dataset.name)
     tag.parentNode.removeChild(tag)
     e.target.removeEventListener('click', removeTag)
-
     updateResults()
 }

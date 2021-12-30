@@ -2,3 +2,7 @@ node_modules/
 project/
 .vscode/
 markdowns/
+src/
+.eslintrc.json
+package-lock.json
+package.json

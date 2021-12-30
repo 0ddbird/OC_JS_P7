@@ -33,12 +33,10 @@ function search (searchParameters) {
         if (value) {
             const currentBatch = []
             currentBatch.push(searchResults[`${key}`])
-            if (currentBatch.length === 0) {
-                return []
-            } else idsFound = currentBatch.flat()
+            if (currentBatch.length === 0) return []
+            else idsFound = currentBatch.flat()
         }
     })
-
     return idsFound
 }
 
@@ -116,11 +114,8 @@ function getUniqueItems (value, index, self) {
 }
 
 function hasIngredient (recipe, tag) {
-    let result = false
-    recipe.ingredients.forEach(object => {
-        if (object.ingredient.includes(tag)) result = true
-    })
-    return result
+    if (recipe.ingredients.find(object => object.ingredient.includes(tag))) return true
+    return false
 }
 
 export { updateResults }

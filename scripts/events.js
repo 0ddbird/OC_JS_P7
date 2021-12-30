@@ -41,7 +41,6 @@ function expandList (evt) {
         button: document.getElementById(`${category}-btn`),
         input: document.getElementById(`${category}-input`),
         list: document.getElementById(`${category}-list`)
-
     }
     const categoryEquivalences = {
         ingredients: 'ingrédient',
@@ -66,7 +65,6 @@ function hideList (comboboxDOM, category) {
         appliances: 'Appareils',
         ustensils: 'Ustensiles'
     }
-
     comboboxDOM.list.classList.add('hidden')
     comboboxDOM.input.setAttribute('placeholder', `${categoryEquivalences[category]}`)
     comboboxDOM.input.setAttribute('size', 10)
@@ -108,7 +106,6 @@ function selectTag (e) {
         button: document.getElementById(`${category}-btn`),
         input: document.getElementById(`${category}-input`),
         list: document.getElementById(`${category}-list`)
-
     }
     const name = e.target.dataset.name
     searchParameters[category].push(name)

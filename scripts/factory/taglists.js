@@ -1,6 +1,7 @@
 function onlyUnique (value, index, self) {
     return self.indexOf(value) === index
 }
+
 function getIngredients (recipes) {
     const totalIngredients = []
     recipes.forEach(recipe => {
@@ -10,6 +11,7 @@ function getIngredients (recipes) {
     filteredIngredients.sort((a, b) => a.localeCompare(b))
     return filteredIngredients
 }
+
 function getAppliances (recipes) {
     const allAppliances = []
     recipes.forEach(recipe => {
@@ -18,6 +20,7 @@ function getAppliances (recipes) {
     const uniqueAppliances = allAppliances.filter(onlyUnique)
     return uniqueAppliances
 }
+
 function getUstensils (recipes) {
     const allUstensils = []
     recipes.forEach(recipe => recipe.ustensils.forEach(ustensil => allUstensils.push(ustensil)))
