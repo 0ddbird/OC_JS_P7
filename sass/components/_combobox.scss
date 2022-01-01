@@ -26,6 +26,12 @@
     border-radius: a.$rad;
     cursor: pointer;
     background-color: transparent;
+
+    &::after {
+        @include a.fontAwesome();
+        content: '\f107'
+
+    }
 }
 
 .combobox-input {
