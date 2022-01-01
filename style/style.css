@@ -251,6 +251,16 @@ main {
   cursor: pointer;
   background-color: transparent;
 }
+.combobox-btn::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f107";
+}
 
 .combobox-input {
   border: none;

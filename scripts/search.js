@@ -135,10 +135,6 @@ function filterByOccurence (array, idOccurence) {
     return result
 }
 
-function getUniqueItems (value, index, self) {
-    return self.indexOf(value) === index
-}
-
 function hasIngredient (recipe, tag) {
     if (recipe.ingredients.find(object => object.ingredient.includes(tag))) return true
     return false
