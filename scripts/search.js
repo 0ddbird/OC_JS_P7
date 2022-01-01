@@ -89,20 +89,34 @@ function ingredientsSearch (ids) {
 }
 
 function keywordSearch (ids) {
-    const matchR = []
+    let matchR = []
     const matchIds = []
+    const result = []
     const keyword = searchParameters.textSearch
     let recipesToParse
 
     if (ids.length === 0) recipesToParse = recipes
     else recipesToParse = getRecipesById(ids)
 
-    matchR.push(recipesToParse.filter(recipe => recipe.name.includes(keyword)))
-    matchR.push(recipesToParse.filter(recipe => recipe.description.includes(keyword)))
-    matchR.push(recipesToParse.filter(recipe => hasIngredient(recipe, [keyword])))
-    matchR.flat().forEach(recipe => matchIds.push(recipe.id))
+    for (let i = 0; i < recipesToParse.length; i++) {
+        if (recipesToParse[i].name.includes(keyword) ||
+        recipesToParse[i].description.includes(keyword) ||
+        hasIngredient(recipesToParse[i], [keyword])) {
+            matchR.push(recipesToParse[i])
+        }
+    }
 
-    return matchIds.filter(getUniqueItems)
+    matchR = matchR.flat()
+
+    for (let i = 0; i < matchR.length; i++) {
+        matchIds.push(matchR[i].id)
+    }
+
+    for (let i = 0; i < matchIds.length; i++) {
+        if (matchIds.indexOf(matchIds[i]) === i) result.push(matchIds[i])
+    }
+
+    return result
 }
 
 function filterByOccurence (array, idOccurence) {
