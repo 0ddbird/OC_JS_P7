@@ -105,8 +105,20 @@ function keywordSearch (ids) {
     return matchIds.filter(getUniqueItems)
 }
 
-function filterByOccurence (array, count) {
-    return array.filter((a, index) => array.indexOf(a) === index && array.reduce((acc, b) => +(a === b) + acc, 0) === count)
+function filterByOccurence (array, idOccurence) {
+    const idCount = {}
+    const result = []
+
+    array.forEach(id => {
+        if (idCount[id] === undefined) idCount[id] = 1
+        else idCount[id] += 1
+    })
+
+    Object.entries(idCount).forEach(([id, count]) => {
+        if (count === idOccurence) result.push(parseInt(id))
+    })
+
+    return result
 }
 
 function getUniqueItems (value, index, self) {
