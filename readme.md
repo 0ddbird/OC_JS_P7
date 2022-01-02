@@ -8,7 +8,9 @@ ___
 
 ## Liens
 
-Lien vers la [GitHub Page](https://okuspo.github.io/P7_Les_petits_plats/).  
+Lien vers la [GitHub Page](https://okuspo.github.io/P7_Les_petits_plats/).
+
+Lien vers [l'algorigramme de recherche](https://whimsical.com/p7-les-petits-plats-logigramme-W6cBsyYcQSZ8L751F5CXtD)
 
 Lien vers le [diagramme des fonctions](https://whimsical.com/p7-les-petits-plats-v1-NyNKLgzuPJdexavg1fegBN).  
 
