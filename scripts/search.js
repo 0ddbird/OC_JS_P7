@@ -10,19 +10,20 @@ function updateResults () {
 }
 
 function search (searchParameters) {
+    // Checks which keys of searchParameters are empty.
     const activeSearch = {
         ingredients: searchParameters.ingredients.length > 0,
         appliances: searchParameters.appliances.length > 0,
         ustensils: searchParameters.ustensils.length > 0,
         text: searchParameters.textSearch !== ''
     }
-
+    // If all parameters are empty, return an array of numbers from 1 to 50.
     if (Object.values(activeSearch).every(item => item === false)) {
         return [...Array(50).keys()]
     }
 
     let idsFound = []
-
+    // Bind the search functions to an object key
     Object.entries(activeSearch).forEach(([key, value]) => {
         const searchResults = {
             ingredients: () => ingredientsSearch(idsFound),
@@ -31,6 +32,7 @@ function search (searchParameters) {
             text: () => keywordSearch(idsFound)
         }
         if (value) {
+            // For each existing search parameter, calls the related search function.
             const currentBatch = []
             currentBatch.push(searchResults[`${key}`]())
             if (currentBatch.length === 0) return []
@@ -51,7 +53,7 @@ function ustensilsSearch (ids = []) {
     const singleTagMatchIds = []
     const tags = searchParameters.ustensils
     let recipesToParse
-
+    // If this is the first search function called, iterates over the whole recipes object instead of the idsFound argument.
     if (ids.length === 0) recipesToParse = recipes
     else recipesToParse = getRecipesById(ids)
 

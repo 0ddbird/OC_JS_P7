@@ -1,3 +1,9 @@
+export const searchParameters = {
+    textSearch: '',
+    ingredients: [],
+    appliances: [],
+    ustensils: []
+}
 
 const oldRecipes = [
     {
@@ -1728,13 +1734,6 @@ const oldRecipes = [
 const jsonRecipes = JSON.stringify(oldRecipes)
 const recipes = JSON.parse(jsonRecipes)
 
-const searchParameters = {
-    textSearch: '',
-    ingredients: [],
-    appliances: [],
-    ustensils: []
-}
-
 function updateResults () {
     const result = search(searchParameters)
     console.log(result)
@@ -1805,9 +1804,7 @@ function appliancesSearch (ids = []) {
     tags.forEach(tag => {
         singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliance === tag))
     })
-
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id))
-
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
 
@@ -1823,28 +1820,39 @@ function ingredientsSearch (ids = []) {
     tags.forEach(tag => {
         singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, tag)))
     })
-
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id))
-
     return filterByOccurence(singleTagMatchIds, tags.length)
 }
 
-function keywordSearch (ids) {
-    let matchR = []
+function keywordSearch (ids = []) {
+    const matchR = []
     const matchIds = []
+    const result = []
     const keyword = searchParameters.textSearch
     let recipesToParse
 
     if (ids.length === 0) recipesToParse = recipes
     else recipesToParse = getRecipesById(ids)
 
-    matchR = matchR.concat(recipesToParse.filter(recipe => recipe.name.includes(keyword)))
-    matchR = matchR.concat(recipesToParse.filter(recipe => recipe.description.includes(keyword)))
-    matchR = matchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, [keyword])))
+    for (let i = 0; i < recipesToParse.length; i++) {
+        if (
+            recipesToParse[i].name.includes(keyword) ||
+            recipesToParse[i].description.includes(keyword) ||
+            hasIngredient(recipesToParse[i], [keyword])
+        ) {
+            matchR.push(recipesToParse[i])
+        }
+    }
 
-    matchR.forEach(recipe => matchIds.push(recipe.id))
+    for (let i = 0; i < matchR.length; i++) {
+        matchIds.push(matchR[i].id)
+    }
 
-    return matchIds.filter((value, index, filteredRecipes) => filteredRecipes.indexOf(value) === index)
+    for (let i = 0; i < matchIds.length; i++) {
+        if (matchIds.indexOf(matchIds[i]) === i) result.push(matchIds[i])
+    }
+
+    return result
 }
 
 function filterByOccurence (array, idOccurence) {
@@ -1868,4 +1876,4 @@ function hasIngredient (recipe, tag) {
     return false
 }
 
-export { updateResults }
+updateResults()
