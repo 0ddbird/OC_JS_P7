@@ -1,3 +1,9 @@
+export const searchParameters = {
+    textSearch: '',
+    ingredients: [],
+    appliances: [],
+    ustensils: []
+}
 
 const oldRecipes = [
     {
@@ -1728,13 +1734,6 @@ const oldRecipes = [
 const jsonRecipes = JSON.stringify(oldRecipes)
 const recipes = JSON.parse(jsonRecipes)
 
-export const searchParameters = {
-    textSearch: '',
-    ingredients: [],
-    appliances: [],
-    ustensils: []
-}
-
 function updateResults () {
     const result = search(searchParameters)
     console.log(result)
@@ -1877,4 +1876,4 @@ function hasIngredient (recipe, tag) {
     return false
 }
 
-export { updateResults }
+updateResults()
